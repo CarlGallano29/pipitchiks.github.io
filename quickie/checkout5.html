@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <header>
+        <nav>
+            <div class="logo">
+                <a href="logo.JPG">Quickie</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="groupmembers.html">Group Members</a></li>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="checkout-section">
+        <h2>Your Selected Product</h2>
+        <div class="checkout-container"></div>
+        <div class="product-details">
+            <img src="puma2.jfif" alt="Selected Product">
+            <h3>SpeedCut OG</h3>
+            <p>: ₱5,200</p>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" onchange="updateTotal()">
+            <script>
+                function updateTotal() {
+                    const quantity = document.getElementById('quantity').value;
+                    const price = 120.00; // Price of the product
+                    const totalAmountElement = document.querySelector('.total-amount');
+                    const total = (price * quantity).toFixed(2);
+                    totalAmountElement.textContent = `Total Amount: $${total}`;
+                    
+                    const orderSummaryTotal = document.querySelector('.order-summary table tr:last-child td:last-child');
+                    orderSummaryTotal.textContent = `$${total}`;
+                }
+            </script>
+        </div>
+        <div class="checkout-actions">
+            <button class="proceed-payment" onclick="alert('Thank you for your purchase!')">Proceed to Payment</button>
+            <button class="go-back" onclick="window.location.href='ourproducts.html'">Go Back</button>
+        </div>
+        </div>
+    </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2025 ShoppeNest. All rights reserved.</p>
+    </footer>
+</body>
+</html>
